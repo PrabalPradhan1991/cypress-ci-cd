@@ -1,0 +1,86 @@
+@import './sizes';
+@import './fonts';
+
+@mixin Headline1 {
+  font-size: $FontSizeExtraLarge;
+  font-weight: $FontWeightSemiBold;
+  letter-spacing: 0.3px;
+}
+
+@mixin Headline2 {
+  font-size: $FontSizeVeryLarge;
+  font-weight: $FontWeightSemiBold;
+  letter-spacing: 0.3px;
+}
+
+@mixin Headline3 {
+  font-size: $FontSizeLarge;
+  font-weight: $FontWeightSemiBold;
+  letter-spacing: 0.3px;
+}
+
+@mixin Body1-1 {
+  font-size: $FontSizeMedium;
+  font-weight: $FontWeightRegular;
+  letter-spacing: 0.3px;
+}
+
+@mixin Body1-2 {
+  font-size: $FontSizeMedium;
+  font-weight: $FontWeightSemiBold;
+  letter-spacing: 0.15px;
+}
+
+@mixin Body2-1 {
+  font-size: $FontSizeRegular;
+  font-weight: $FontWeightRegular;
+  letter-spacing: 0.3px;
+}
+
+@mixin Body2-2 {
+  font-size: $FontSizeRegular;
+  font-weight: $FontWeightSemiBold;
+  letter-spacing: 0.15px;
+}
+
+@mixin Button1 {
+  font-size: $FontSizeMedium;
+  font-weight: $FontWeightSemiBold;
+  letter-spacing: 0.3px;
+}
+
+@mixin Button2 {
+  font-size: $FontSizeRegular;
+  font-weight: $FontWeightSemiBold;
+  letter-spacing: 0.3px;
+}
+
+@mixin Caption1 {
+  font-size: $FontSizeSmall;
+  font-weight: $FontWeightRegular;
+  letter-spacing: 0.3px;
+}
+
+@mixin Caption2 {
+  font-size: $FontSizeSmall;
+  font-weight: $FontWeightSemiBold;
+  letter-spacing: 0.3px;
+}
+
+@mixin Overline {
+  font-size: $FontSizeTiny;
+  font-weight: $FontWeightRegular;
+  letter-spacing: 0.6px;
+}
+
+@mixin left {
+  text-align: left;
+}
+
+@mixin center {
+  text-align: center;
+}
+
+@mixin right {
+  text-align: right;
+}

@@ -1,0 +1,94 @@
+variables:
+  DOCKER_HOST: tcp://docker:2375/
+  DOCKER_DRIVER: overlay2
+  KUBERNETES: ./kubernetes
+  IMAGE: capa-team-frontend
+  ZONE: europe-west3-a
+
+stages:
+  - build
+  # - migrage
+  - deploy
+
+.build-and-push-template: &build-and-push-definition
+  stage: build
+  image: ysch/ci:1.4
+  services:
+    - docker:dind
+  script:
+    - echo "📝 Loading environment configuration"
+    - echo "💻 Build docker image"
+    - docker build -t ${IMAGE}:${CI_COMMIT_SHA} ./client
+    - echo "🎈 Tagging images for ${PROJECT_NAME}"
+    - docker tag ${IMAGE}:${CI_COMMIT_SHA} eu.gcr.io/${PROJECT_NAME}/${IMAGE}:$CI_COMMIT_SHA
+    - echo "💨 Auth @ gCloud Push docker image"
+    - gcloud auth activate-service-account --key-file $cloud_key
+    - gcloud auth configure-docker
+    - echo "💨 Auth @ gCloud Push docker image"
+    - docker push eu.gcr.io/${PROJECT_NAME}/${IMAGE}:${CI_COMMIT_SHA} | cat
+    - echo "📦 Build and push done for ${PROJECT_NAME}"
+    - docker rmi eu.gcr.io/${PROJECT_NAME}/${IMAGE}:${CI_COMMIT_SHA}
+    - docker rmi ${IMAGE}:${CI_COMMIT_SHA}
+    - echo "🗑 Local Images for ${PROJECT_NAME} removed"
+  tags:
+    - docker
+
+.deployment-template: &deployment-definition
+  stage: deploy
+  environment:
+    name: staging
+  image: ysch/ci:1.1
+  services:
+    - docker:dind
+  artifacts:
+    paths:
+      - deployment.yaml
+    expire_in: 1 week
+  script:
+    - echo "📝 Loading environment configuration"
+    - gcloud auth activate-service-account --key-file $cloud_key
+    - gcloud container clusters get-credentials ${CLUSTER} --zone ${ZONE} --project ${PROJECT_NAME}
+    - envsubst < kubernetes/deployment.tmpl.yaml > deployment.yaml
+    #- cat deployment.yaml
+    - kubectl apply -f deployment.yaml
+    - echo "🚀 Deployment complete"
+  tags:
+    - docker
+
+  ###### TEMPLATES #######
+build-and-push-production:
+  <<: *build-and-push-definition
+  only: ["master"]
+  environment:
+    name: production
+  variables:
+    ENV: prod
+    NODE_ENV: dev
+
+build-and-push-dev:
+  <<: *build-and-push-definition
+  only: ["develop"]
+  environment:
+    name: develop
+  variables:
+    ENV: dev
+    NODE_ENV: dev
+
+deploy-production:
+  <<: *deployment-definition
+  only: ["master"]
+  environment:
+    name: production
+  variables:
+    ENV: prod
+    NODE_ENV: prod
+  when: manual
+
+deploy-dev:
+  <<: *deployment-definition
+  only: ["develop"]
+  environment:
+    name: develop
+  variables:
+    ENV: dev
+    NODE_ENV: dev

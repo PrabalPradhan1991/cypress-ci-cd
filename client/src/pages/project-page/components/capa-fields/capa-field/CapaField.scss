@@ -1,0 +1,40 @@
+@import "assets/styles/variables";
+@import "./../../../ProjectPage.scss";
+
+.capaField {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-shrink: 3;
+  border-radius: 2px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.capaFieldYellow {
+  background-color: $SignalColorWarning1;
+}
+
+.capaFieldRed {
+  background-color: $SignalColorError2;
+}
+
+.capaFieldGreen {
+  background-color: $SignalColorSuccess2;
+}
+
+.capaFieldGray {
+  background-color: $Gray2;
+}
+
+.capaBorder {
+  width: 50%;
+  height: $FieldHeightRegular;
+  background-color: white;
+  border-bottom: $CapaPlanBorder;
+  border-right: $CapaPlanBorder;
+  padding: 2px;
+}

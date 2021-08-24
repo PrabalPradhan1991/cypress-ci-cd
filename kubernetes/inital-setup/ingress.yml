@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: corona-dev-ingress
+  namespace: dev-capa-team
+spec:
+  rules:
+  - host: dev.cappa-team.bevelop.io
+  - http:
+      paths:
+      - backend:
+          serviceName: capa-team-frontend
+          servicePort: 80
+  - host: dev.cappa-team.bevelop.io
+    http:
+      paths:
+      - path: /api
+        backend:
+          serviceName: capa-team-backend
+          servicePort: 80

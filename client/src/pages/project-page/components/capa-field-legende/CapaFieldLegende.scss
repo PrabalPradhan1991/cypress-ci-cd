@@ -1,0 +1,23 @@
+@import "assets/styles/variables.scss";
+
+.legende {
+  p {
+    @include Caption1;
+    margin-left: 0.5rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding-top: $SizeSmall;
+    @include Caption1;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+    flex-direction: row;
+  }
+}

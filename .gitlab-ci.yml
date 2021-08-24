@@ -1,0 +1,95 @@
+stages:
+  - install_dependencies
+  - test
+  - build
+  - deploy
+
+variables:
+  CI_REGISTRY: ${CI_REGISTRY}
+  CI_REGISTRY_IMAGE: ${CI_REGISTRY_IMAGE}
+  IMAGE_NAME: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_NAME}
+
+cache:
+  key: "$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
+
+install_packages:
+  stage: install_dependencies
+  image: node:14-alpine   
+  before_script:
+    - yarn install
+    - cd client
+  script:
+    - yarn install
+  tags:
+    - team-capa-node
+  artifacts:
+    paths:
+    - node_modules
+    - client/node_modules
+    expire_in: 1 weeks 
+  when: always
+  cache:
+    paths:
+    - node_modules
+    - client/node_modules
+
+#Run Test Case Script Here
+test:
+  stage: test
+  image:  node:14-alpine   
+  dependencies: 
+    - install_packages
+  before_script:
+    - cd client
+  script:
+    - yarn test
+  tags:
+    - team-capa-node
+  artifacts:
+    paths:
+    - node_modules
+    expire_in: 1 weeks 
+  when: always
+  only:
+    refs:
+      - /^BPB-[0-9]*/
+  cache:
+    paths:
+    - node_modules
+
+buildapp:
+  stage: build
+  image:  node:14-alpine   
+  dependencies: 
+    - install_packages
+  before_script:
+    - cd client
+  script:
+    - yarn build
+  tags:
+    - team-capa-node
+  artifacts:
+    paths:
+    - client/build
+    expire_in: 1 weeks 
+  when: always
+  only:
+    refs:
+      - develop
+
+dev-deploy:
+  stage: deploy
+  dependencies:
+    - buildapp
+  script:
+    - docker-compose -f docker-compose.dev.yml down && docker-compose -f docker-compose.dev.yml up -d
+
+  environment:
+    name: development
+    url: ${DEV_URL}
+  tags:
+    - team-capa-dev-deploy
+  only:
+    - develop
+
+

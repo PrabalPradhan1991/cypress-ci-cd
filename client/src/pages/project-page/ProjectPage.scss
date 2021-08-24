@@ -1,0 +1,142 @@
+@import "assets/styles/variables";
+
+$CapaPlanBorder: 0px solid $Gray7;
+
+$weekdaysWidth: $FieldWidthRegular/3;
+
+$sprintCardWidth: $FieldWidthRegular;
+
+$LegendeWidth: 10rem;
+
+$CapaPlanMargin: 0.2rem;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $Gray1;
+  // overflow-x: hidden;
+}
+
+// .table {
+//   max-width: 100vw;
+//   min-width: 100vw;
+//   overflow-x: scroll;
+// }
+
+.header {
+  padding-left: 2rem;
+  position: sticky;
+  top: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 10rem;
+  background-color: $Gray1;
+  // box-shadow: $ShadowCard;
+
+  // background-color: green;
+}
+
+.users {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: $Gray1;
+
+  //FIXME: Maybe better way to write this selector --> Selects the First "Vormittagsfeld"
+  .userInfo:first-child
+    > .userInfo-container
+    > .userInfo-container__time:first-child {
+    box-sizing: content-box;
+    border-left: $CapaPlanBorder;
+    border-right: 0;
+  }
+
+  //FIXME: Maybe better way to write this selector --> Selects the First "Nachmittagsfeld"
+  .userInfo:first-child
+    > .userInfo-container
+    > .userInfo-container__time:last-child {
+    box-sizing: content-box;
+    border-left: $CapaPlanBorder;
+  }
+}
+
+.headSpacer {
+  min-width: calc(#{$weekdaysWidth} + #{$sprintCardWidth});
+  background-color: #ffffff;
+  height: 32px;
+  align-self: flex-end;
+}
+
+.wrapperSpacer {
+  min-width: $LegendeWidth;
+  background-color: $Gray1;
+}
+
+.newUserSpacer {
+  width: $FieldWidthRegular;
+}
+
+.wrapper {
+  padding-left: 2rem;
+  justify-content: flex-start;
+  display: flex;
+  margin-bottom: $FieldHeightRegular/2;
+  width: auto;
+}
+
+.legende {
+  top: 28vh;
+  position: sticky;
+  min-width: $LegendeWidth;
+  max-width: $LegendeWidth;
+  margin-top: 10vh;
+}
+
+.plan {
+  display: flex;
+  flex-direction: row;
+}
+
+.footer {
+  background-color: lightgoldenrodyellow;
+  grid-area: footer;
+}
+
+.sprintCard {
+  background-color: lightgreen;
+  display: flex;
+  justify-content: right;
+  min-width: $sprintCardWidth;
+  max-width: $sprintCardWidth;
+}
+
+.week {
+  background-color: lightgreen;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: $weekdaysWidth;
+}
+
+.loadingContainer {
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.lazyLoadingContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.loadSprintWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}

@@ -1,0 +1,17 @@
+version: "3"
+services:
+  team-capacity-frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.local
+    image: team-capacity-frontend
+    container_name: team-capacity-frontend
+    ports:
+      - "3000:3000"
+      - "35729:35729"
+    volumes:
+      - "./client:/home/node/app:cached"
+    environment:
+      - REACT_APP_PUBLIC_URL=http://localhost:8080/api/
+      - REACT_APP_API_BASE_URL=http://localhost:8080/api/
+      - NODE_ENV=dev

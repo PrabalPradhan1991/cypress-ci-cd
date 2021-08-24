@@ -1,0 +1,123 @@
+@import "assets/styles/variables.scss";
+
+.avatarContainer {
+  &-admin {
+    .editUser {
+      visibility: hidden;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      background-color: #ffffff;
+      box-shadow: $ShadowButtonHover;
+      border-radius: 50%;
+      max-width: 1.2rem;
+      min-width: 1.2rem;
+      max-height: 1.2rem;
+      min-height: 1.2rem;
+    }
+
+    .avatar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      min-width: 44px;
+      min-height: 44px;
+      border-radius: 50%;
+      font-weight: $FontWeightSemiBold;
+      border: 3px solid #ffffff;
+
+      &.deleted {
+        color: $Gray6;
+      }
+
+      &.red {
+        background-color: $SignalColorError4;
+
+        &:hover {
+          background-color: $SignalColorError5;
+        }
+      }
+
+      &.yellow {
+        background-color: $SignalColorWarning4;
+
+        &:hover {
+          background-color: $SignalColorWarning5;
+        }
+      }
+
+      &.green {
+        background-color: $SignalColorSuccess4;
+
+        &:hover {
+          background-color: $SignalColorSuccess5;
+        }
+      }
+
+      &.blue {
+        background-color: $SignalColorInfo4;
+
+        &:hover {
+          background-color: $SignalColorInfo5;
+        }
+      }
+    }
+  }
+
+  &-user {
+    .editUser {
+      visibility: hidden;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      background-color: #ffffff;
+      box-shadow: $ShadowButtonHover;
+      border-radius: 50%;
+      max-width: 1.2rem;
+      min-width: 1.2rem;
+      max-height: 1.2rem;
+      min-height: 1.2rem;
+    }
+
+    .avatar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      min-width: 44px;
+      min-height: 44px;
+      border-radius: 50%;
+      font-weight: $FontWeightSemiBold;
+      border: 3px solid #ffffff;
+
+      &.red {
+        background-color: $SignalColorError4;
+      }
+
+      &.yellow {
+        background-color: $SignalColorWarning4;
+      }
+
+      &.green {
+        background-color: $SignalColorSuccess4;
+      }
+
+      &.blue {
+        background-color: $SignalColorInfo4;
+      }
+    }
+  }
+
+  &-admin:hover {
+    cursor: pointer;
+
+    .editUser {
+      visibility: visible;
+    }
+  }
+}

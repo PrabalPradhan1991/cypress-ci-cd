@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1beta1
+kind: ManagedCertificate
+metadata:
+  name: corona-dev-cert
+  namespace: develop
+spec:
+  domains:
+    - dev.api.corona.bevelop.de

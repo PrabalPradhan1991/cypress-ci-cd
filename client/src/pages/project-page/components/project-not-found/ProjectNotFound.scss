@@ -1,0 +1,19 @@
+@import "assets/styles/variables.scss";
+
+.error-img-container {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding-top: $SizeExtraLarge;
+  height: 100vh;
+
+  &__img {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("../../../../assets/img/undraw_page_not_found.svg");
+    width: 900px;
+    height: 100%;
+  }
+}

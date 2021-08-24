@@ -1,0 +1,57 @@
+// Easing curves from Google Material Design
+// https://material.io/guidelines/motion/duration-easing.html#duration-easing-natural-easing-curves
+// https://material.io/guidelines/motion/movement.html
+$StandardEasingFunction: cubic-bezier(
+  0.4,
+  0,
+  0.2,
+  1
+); // Use for elements which are growing or shrinking, among other property changes.
+$DecelerationEasingFunction: cubic-bezier(
+  0,
+  0,
+  0.2,
+  1
+); // Use if element scales up in size (to 100 %) or opacity (to 100 %)
+$AccelerationEasingFunction: cubic-bezier(
+  0.4,
+  0,
+  1,
+  1
+); // Use if element scales down in size (to 0 %) or opacity (to 0 %)
+$SharpCurveEasingFunction: cubic-bezier(
+  0.4,
+  0,
+  0.6,
+  1
+); // Use for elements that are exiting and may return to the screen at any time
+
+// The value will exceed the maximum value just before the end and then return to the maximum value.
+// Source: https://easings.net/de#easeOutBack
+$ExceedEasingOut: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+// The value will exceed the minimum value just after the beginning and then proceed to the maximum value.
+// Source: https://easings.net/de#easeInBack
+$ExceedEasingIn: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+
+$MenuEasingFunction: cubic-bezier(0.5, 0.255, 0, 1);
+
+// Timings from Google Material Design
+// https://material.io/guidelines/motion/duration-easing.html#duration-easing-common-durations
+$TimingDurationDefault: 300ms;
+$TimingDurationFast: 150ms;
+$TimingDurationSlow: 500ms;
+$TimingDurationComplex: 375ms;
+$TimingDurationEntering: 225ms;
+$TimingDurationLeaving: 195ms;
+
+$AnimationDefault: $TimingDurationDefault $StandardEasingFunction;
+$AnimationFast: $TimingDurationFast $StandardEasingFunction;
+$AnimationSlow: $TimingDurationSlow $StandardEasingFunction;
+$AnimationComplex: $TimingDurationComplex $StandardEasingFunction;
+
+$AnimationScalingUp: $TimingDurationDefault $DecelerationEasingFunction;
+$AnimationScalingDown: $TimingDurationDefault $AccelerationEasingFunction;
+$AnimationScalingUpFast: $TimingDurationFast $DecelerationEasingFunction;
+$AnimationScalingDownFast: $TimingDurationFast $AccelerationEasingFunction;
+
+$AnimationTemporarilyDisappear: $TimingDurationDefault $SharpCurveEasingFunction;

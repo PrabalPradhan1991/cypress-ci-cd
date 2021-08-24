@@ -1,0 +1,40 @@
+@import "./../../assets/styles/variables.scss";
+
+.feedback {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+
+  &-container {
+    width: $FieldWidthRegular;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    &-button {
+      &:hover {
+        cursor: pointer;
+        background-color: $PrimaryColor6;
+      }
+
+      &:active {
+        background-color: $PrimaryColor7;
+      }
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      min-width: 44px;
+      min-height: 44px;
+      border-radius: 2px;
+      padding: 10px;
+      font-weight: $FontWeightSemiBold;
+      border: 3px solid #ffffff;
+      background-color: $PrimaryColor5;
+      margin-bottom: 22px;
+    }
+  }
+}

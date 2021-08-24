@@ -1,0 +1,32 @@
+@import "./../../assets/styles/variables.scss";
+
+.container-navbar {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  height: 2 * $SizeVeryLarge + $SizeMedium;
+  box-shadow: $ShadowCard;
+  z-index: 100;
+  justify-content: space-between;
+  padding: 0 1.2rem;
+
+  &__logo {
+    color: $MainColor1;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    padding-left: 1rem;
+
+    .single-select {
+      width: 64px;
+    }
+  }
+}

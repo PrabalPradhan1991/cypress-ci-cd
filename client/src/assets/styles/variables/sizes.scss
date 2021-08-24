@@ -1,0 +1,76 @@
+// @formatter:off
+
+// Header-Sizes
+$NavigationHeight: 4rem; // 64px
+
+// Footer-Sizes
+$FooterHeight: 4.375rem; // 70px
+
+// Table-Rows
+$RowHeight: 4.375rem; // 70px
+
+// Sizes
+$SizeTiny: 0.125rem; // 2px
+$SizeSmall: 0.3125rem; // 5px
+$SizeRegular: 0.625rem; // 10px
+$SizeMedium: 1rem; // 16px
+$SizeLarge: 1.25rem; // 20px
+$SizeVeryLarge: 2rem; // 32px
+$SizeExtraLarge: 3rem; // 48px
+
+// Font-Sizes
+$FontSizeTiny: 0.625rem; // 10px
+$FontSizeSmall: 0.75rem; // 12px
+$FontSizeRegular: 0.875rem; // 14px
+$FontSizeMedium: 1rem; // 16px
+$FontSizeLarge: 1.25rem; // 20px
+$FontSizeVeryLarge: 1.5rem; // 24px
+$FontSizeExtraLarge: 1.875rem; // 30px
+
+// Icon-Sizes
+$IconSizeVeryTiny: 0.4rem; // 6px
+$IconSizeTiny: 0.625rem; // 10px
+$IconSizeSmall: 0.75rem; // 12px
+$IconSizeRegular: 1rem; // 16px
+$IconSizeMedium: 1.125rem; // 18px
+$IconSizeLarge: 1.25rem; // 20px
+$IconSizeVeryLarge: 2rem; // 32px
+$IconSizeExtraLarge: 3rem; // 48px
+
+//$FieldHeight
+$FieldHeightRegular: 3rem;
+
+//$FieldWidth
+$FieldWidthRegular: 12.5rem;
+
+// Border-radii
+$BorderRadiusStandard: $SizeTiny;
+$BorderRadiusLarge: 2 * $SizeTiny;
+$BorderRadiusExtraLarge: 4 * $SizeTiny;
+
+// Element-Sizes
+$InputHeight: $SizeLarge + $SizeMedium / 2; // 28px
+$InputHeightLarge: $SizeVeryLarge;
+
+// Page-/Layout-Sizes
+$ContentMinWidth: 20rem; // 320px;
+$ContentMaxWidth: 112.5rem; // 1800px;
+$GridMaxWidth: 70rem; // 1120px
+
+//Grid-Layout-Sizes 3 columns
+$Grid3Column1: 33.33%;
+$Grid3Column2: 66.66%;
+$Grid3Column3: 100%;
+
+//Grid-Layout-Sizes 4 columns
+$Grid4Column1: 25%;
+$Grid4Column2: 50%;
+$Grid4Column3: 75%;
+$Grid4Column4: 100%;
+
+// Golden ratio
+$GoldenRatioMajor: 0.618;
+$GoldenRatioMinor: 1 - $GoldenRatioMajor;
+
+// Scrollbar size
+$ScrollBarWidth: $SizeMedium / 2;

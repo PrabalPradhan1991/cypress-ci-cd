@@ -1,0 +1,33 @@
+@import "assets/styles/variables";
+@import "./../../ProjectPage.scss";
+
+.container-user {
+  width: calc(#{$FieldWidthRegular});
+  margin-right: $CapaPlanMargin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  &-button {
+    &:hover {
+      cursor: pointer;
+      background-color: $Gray6;
+    }
+    &:active {
+      background-color: $Gray7;
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 50%;
+    font-weight: $FontWeightSemiBold;
+    border: 3px solid #ffffff;
+    background-color: $Gray5;
+    margin-bottom: 22px;
+  }
+}

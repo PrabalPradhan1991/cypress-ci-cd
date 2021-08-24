@@ -1,0 +1,27 @@
+@import "assets/styles/variables";
+
+.card {
+  width: 100%;
+  height: 100%;
+  padding: $SizeRegular;
+  box-shadow: $ShadowCard;
+  background-color: $Gray0;
+  @include Caption1;
+  color: $Gray7;
+}
+
+.name {
+  @include Body1-2;
+  color: $SignalColorInfo5;
+}
+
+.points {
+  @include Body2-2;
+  padding-top: $SizeRegular;
+  color: $Gray13;
+}
+
+.iteration {
+  @include Caption1;
+  padding-top: $SizeSmall;
+}

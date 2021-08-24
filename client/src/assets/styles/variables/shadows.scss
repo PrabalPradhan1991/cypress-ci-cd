@@ -1,0 +1,13 @@
+@import '../variables/colors';
+
+/* stylelint-disable unit-blacklist */
+
+$ShadowButton: 0 0 20px rgba($Gray11, 0.2);
+$ShadowButtonHover: 0 3px 20px rgba($Gray11, 0.2);
+
+$ShadowCardHover: 0 0 25px rgba($Gray11, 0.5);
+$ShadowCard: 0 0 20px rgba($Gray11, 0.2);
+
+$Shadow4: 0 0 20px rgba($Gray9, 0.2);
+
+/* stylelint-enable unit-blacklist */

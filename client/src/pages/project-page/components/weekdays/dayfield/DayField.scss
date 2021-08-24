@@ -1,0 +1,27 @@
+@import "assets/styles/variables";
+@import "./../../../ProjectPage.scss";
+
+.dayfield {
+  width: 100%;
+  height: $FieldHeightRegular;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: $CapaPlanBorder;
+  background-color: $Gray0;
+  @include Body1-2;
+
+  .date {
+    color: $FontColor2;
+    @include Caption1;
+  }
+
+  .weekday {
+    color: $FontColor4;
+  }
+
+  .weekend {
+    color: $FontColor2;
+  }
+}

@@ -1,0 +1,15 @@
+$Media-XXXS: 'only screen and (max-width: 399px), only print and (max-width: 8cm)'; //         < 400 px
+$Media-XXS: 'only screen and (max-width: 499px), only print and (max-width: 10cm)'; //         < 500 px
+$Media-XS: 'only screen and (max-width: 767px), only print and (max-width: 16cm)'; //          < 768 px
+$Media-S: 'only screen and (max-width: 900px), only print and (max-width: 18cm)'; //           <= 900 px
+$Media-M: 'only screen and (max-width: 1023px), only print and (max-width: 20cm)'; //          <= 1023 px
+$Media-L: 'only screen and (max-width: 1199px), only print and (max-width: 23.99cm)'; //       < 1200 px
+$Media-XL: 'only screen and (min-width: 1200px), only print and (min-width: 24cm)'; //         >= 1200px
+$Media-XXL: 'only screen and (min-width: 1921px), only print and (min-width: 38.4cm)'; //      > 1920px
+
+$Media-Grid-S: 'only screen and (max-width: 22rem), only print and (max-width: 7cm)'; //       < 352px
+$Media-Grid-M: 'only screen and (max-width: 44rem), only print and (max-width: 14cm)'; //      < 704px
+$Media-Grid-L: 'only screen and (max-width: 66rem), only print and (max-width: 21cm)'; //      < 1056px
+
+$Media-Only-Screen: 'only screen';
+$Media-Only-Print: 'only print';

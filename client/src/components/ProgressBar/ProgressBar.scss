@@ -1,0 +1,83 @@
+@import "assets/styles/variables.scss";
+
+.progress-bar {
+  counter-reset: steps;
+  display: inline-block;
+  list-style: none;
+  padding: 1em 0 3em 0;
+  padding-left: 6.2em;
+  text-align: left;
+
+  &__item {
+    border-bottom: solid 4px $Gray4;
+    counter-increment: steps;
+    display: inline-block;
+    position: relative;
+    width: 8em;
+    margin-right: -0.375em;
+
+    &:last-child {
+      border-bottom: none;
+      width: 30px;
+    }
+
+    span {
+      display: inline-block;
+      position: relative;
+      width: 8em;
+      height: 32px;
+      left: -3rem;
+      top: 4rem;
+      overflow: hidden;
+      text-align: center;
+      font-weight: 600;
+      line-height: 16px;
+      color: #172b4d;
+      font-size: 14px;
+    }
+
+    &:after {
+      background: $Gray4;
+      border: solid 4px transparent;
+      border-radius: 50%;
+      color: #fff;
+      content: counter(steps);
+      font-weight: bold;
+      display: block;
+      position: absolute;
+      text-align: center;
+      width: 14px;
+      height: 14px;
+      bottom: -1.1em;
+      line-height: 14px;
+      left: -4px;
+      bottom: -13px;
+    }
+
+    &.current:after {
+      background: $MainColor1;
+    }
+
+    &.completed {
+      border-bottom-color: $MainColor1;
+
+      &:after {
+        background: $MainColor1;
+      }
+    }
+  }
+
+  &--icon .progress-bar__item {
+    &:after {
+      content: "";
+    }
+
+    &.completed:after {
+      content: "";
+      background: url("../../assets/img/check.svg") no-repeat;
+      background-size: 10px 9px;
+      background-position: center center;
+      background-color: $MainColor1;
+    }
+  }
+}

@@ -1,0 +1,108 @@
+@import 'colors';
+@import 'sizes';
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root('::placeholder') {
+    @content;
+  }
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}
+
+@mixin hidePlaceholder {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+@mixin ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin multiLineEllipsis($maxLines: 2) {
+  @supports (display: -webkit-box) and (-webkit-box-orient: vertical) {
+    /* stylelint-disable-next-line */
+    display: -webkit-box;
+    -webkit-line-clamp: $maxLines;
+    white-space: unset;
+    overflow: hidden;
+    // disable autoprefixer for next line, otherwise rule will be removed
+
+    /* stylelint-disable property-no-vendor-prefix,comment-empty-line-before */
+
+    /* autoprefixer: ignore next */
+    -webkit-box-orient: vertical;
+    /* stylelint-enable property-no-vendor-prefix,comment-empty-line-before */
+  }
+
+  // If multi-line ellipsis are not supported, use single line ellipsis
+  @supports (not (display: -webkit-box)) or (not (-webkit-box-orient: vertical)) {
+    @include ellipsis;
+  }
+}
+
+@mixin fullscreen {
+  &:fullscreen {
+    @content;
+  }
+
+  // stylelint-disable-next-line
+  &:full-screen {
+    @content;
+  }
+
+  &:-ms-fullscreen {
+    @content;
+  }
+}
+
+@mixin isFullscreen {
+  :host-context(body.co-fullscreen) & {
+    @content;
+  }
+}
+
+@mixin loadingAnimation($delay: 0) {
+  background: linear-gradient(to right, $Gray2 15%, $Gray1 45%, $Gray1 55%, $Gray2 85%);
+  background-size: 200vw 100%;
+  animation-name: loadingBoxAnimation;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-delay: $delay;
+  animation-iteration-count: infinite;
+
+  @keyframes loadingBoxAnimation {
+    0% {
+      background-position: -100vw 50%;
+    }
+
+    100% {
+      background-position: 100vw 50%;
+    }
+  }
+}
+
+@mixin enableBackgroundForPrint() {
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-print-color-adjust: exact !important;
+}
+
+$SupportsGridValue: grid; // change to any invalid display value to simulate browser without grid support

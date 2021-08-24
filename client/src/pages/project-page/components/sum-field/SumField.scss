@@ -1,0 +1,22 @@
+@import "assets/styles/variables";
+
+.sumFieldBorder {
+  // margin-top: 1rem;
+  padding: 2px;
+  background-color: #ffffff;
+  min-width: $FieldWidthRegular;
+  max-width: $FieldWidthRegular;
+  height: $FieldHeightRegular;
+
+  .sumField {
+    color: #ffffff;
+    border-radius: 2px;
+    background-color: $PrimaryColor5;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: $FontWeightSemiBold;
+    user-select: none;
+  }
+}

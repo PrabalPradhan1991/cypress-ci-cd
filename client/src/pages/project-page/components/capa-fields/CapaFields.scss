@@ -1,0 +1,17 @@
+@import "assets/styles/variables.scss";
+@import "./../../ProjectPage.scss";
+
+.capaFields {
+  width: $FieldWidthRegular;
+  margin-right: $CapaPlanMargin;
+  background-color: greenyellow;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  border-top: $CapaPlanBorder;
+  box-sizing: border-box;
+
+  &:first-child {
+    border-left: $CapaPlanBorder;
+  }
+}

@@ -1,0 +1,10 @@
+FROM node:10
+
+ENV HOME=/home/node/app
+RUN mkdir $HOME
+WORKDIR $HOME
+
+EXPOSE 4200
+EXPOSE 49249
+
+CMD [ "./run.sh" ]
