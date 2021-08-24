@@ -3,15 +3,21 @@ services:
   team-capacity-frontend:
     build:
       context: ./client
-      dockerfile: Dockerfile.local
+      dockerfile: Dockerfile
     image: team-capacity-frontend
     container_name: team-capacity-frontend
-    ports:
-      - "3000:3000"
-      - "35729:35729"
-    volumes:
-      - "./client:/home/node/app:cached"
+    networks:
+      - webapp
     environment:
-      - REACT_APP_PUBLIC_URL=http://localhost:8080/api/
-      - REACT_APP_API_BASE_URL=http://localhost:8080/api/
+      - REACT_APP_PUBLIC_URL=https://api.capa-team.diagonal.solutions/api/
+      - REACT_APP_API_BASE_URL=https://api.capa-team.diagonal.solutions/api/
       - NODE_ENV=dev
+    labels:
+      - traefik.backend=team-capacity-frontend
+      - traefik.normal.frontend.rule=Host:capa-team.diagonal.solutions
+      - traefik.docker-network=webapp
+      - traefik.port=80
+      - traefik.frontend.auth.basic=team-capa:$$2y$$05$$loseUPRLVb0qFa1K6zBhMeejWfd1y8SrkEeUqP4lzuPRhLjW7MFcy
+networks:
+  webapp:
+    external: true
